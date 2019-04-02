@@ -13,12 +13,22 @@ namespace PersonalNote.Models
         public int Id { get; set;}
 
         [Required]
+        public string ItemName { get; set; }
+
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime WorkoutDate { get; set; } = DateTime.Now;
 
         [Required]
+        public float Calories { get; set; }
+
+        [Required]
         public string Category { get; set; }
+
+        [Required]
+        public string Notes { get; set; }
+
 
     }
 }

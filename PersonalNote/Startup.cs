@@ -57,7 +57,7 @@ namespace PersonalNote
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Workout}/{action=Index}/{id?}");
             });
         }
     }

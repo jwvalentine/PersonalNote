@@ -1,0 +1,45 @@
+﻿@model PersonalNote.Models.WorkoutReport
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+<div>
+    <div class="row">
+        <div class="col-md-8">
+            <form id="workoutForm">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="ItemName" class="control-label"></label>
+                    <input asp-for="ItemName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category" class="control-label"></label>
+                    <select asp-for="Category" class="form-control">
+                        <option value="">-- Select Category --</option>
+                        <option value="Cardio">Cardio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Calories" class="control-label"></label>
+                    <input asp-for="Calories" class="form-control" />
+                </div>
+                <div class="form-group" id="calender-container">
+                    <label asp-for="WorkoutDate" class="control-label"></label>
+                    <div class="input-group date">
+                        <input asp-for="WorkoutDate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Notes" class="control-label"></label>
+                    <input asp-for="Notes" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button type="button" id="btnSubmit" class="btn btn-block btn-info">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@

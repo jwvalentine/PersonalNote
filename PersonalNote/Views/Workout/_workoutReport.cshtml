@@ -1,0 +1,77 @@
+﻿<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<button id="btnMonthlyReport" class="btn btn-info">Monthly Report</button>
+<button id="btnWeeklyReport" class="btn btn-warning">Weekly Report</button>
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $("#btnMonthlyReport").click(function () {
+            var titleMessage = "Workouts in last six months is : ";
+
+            $.ajax({
+                type: "GET",
+                url: "/Workout/GetMonthlyWorkout",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (result) {
+                    var keys = Object.keys(result);
+                    var monthlydata = new Array();
+                    var totalspent = 0.0;
+                    for (var i = 0; i < keys.length; i++) {
+                        var arrL = new Array();
+                        arrL.push(keys[i]);
+                        arrL.push(result[keys[i]]);
+                        totalspent += result[keys[i]];
+                        monthlydata.push(arrL);
+                    }
+                    createCharts(monthlydata, titleMessage, totalspent.toFixed(2));
+                }
+            })
+        })
+    })
+
+    function createCharts(sum, titleText, totalspent) {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: titleText + ' ' + totalspent
+            },
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Calories burned'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'Total calories burned: <b>{point.y:.2f} </b>'
+            },
+            series: [{
+                type: 'column',
+                data: sum,
+            }]
+        });
+    }
+
+</script>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
