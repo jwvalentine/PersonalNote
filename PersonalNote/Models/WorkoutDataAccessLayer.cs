@@ -36,7 +36,6 @@ namespace PersonalNote.Models
             }
         }
 
-
         public void AddWorkout(WorkoutReport workout)
         {
             try

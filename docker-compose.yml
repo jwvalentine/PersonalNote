@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  personalnote:
+    image: ${DOCKER_REGISTRY-}personalnote
+    volumes:
+    - personalnote-vol:/mydata/
+    build:
+      context: .
+      dockerfile: PersonalNote/Dockerfile
+
+volumes:
+  personalnote-vol:

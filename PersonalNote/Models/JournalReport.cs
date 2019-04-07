@@ -7,24 +7,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PersonalNote.Models
 {
-    public class WorkoutReport
+    public class JournalReport
     {
         [Key]
-        public int Id { get; set;}
+        public int Id { get; set; }
 
         [Required]
-        public string ItemName { get; set; }
+        public string Title { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime WorkoutDate { get; set; } = DateTime.Now;
-
-        [Required]
-        public float Calories { get; set; }
-
-        [Required]
-        public string Category { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
 
         [Required]
         public string Notes { get; set; }
