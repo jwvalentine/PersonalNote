@@ -53,9 +53,11 @@ namespace PersonalNote.Models
         {
             try
             {
-                db.Entry(workout).State = EntityState.Modified;
-                db.SaveChanges();
-
+                if (workout != null)
+                {
+                    db.Entry(workout).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
                 return 1;
             }
             catch
