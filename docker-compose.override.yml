@@ -3,7 +3,7 @@ version: '3.4'
 services:
   personalnote:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "51563:80"
