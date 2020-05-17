@@ -1,0 +1,16 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+RUN apt-get -y update && apt-get -y upgrade
+WORKDIR /src
+COPY ["PersonalNote/PersonalNote.csproj", "PersonalNote/"]
+RUN dotnet restore "PersonalNote/PersonalNote.csproj"
+COPY . .
+WORKDIR "/src/PersonalNote"
+RUN dotnet publish "PersonalNote.csproj" -c Release -o /app
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS final
+WORKDIR /app
+COPY --from=build /app .
+ENTRYPOINT ["dotnet", "PersonalNote.dll"]
+ENV ASPNETCORE_ENVIRONMENT="Production"
+EXPOSE 80

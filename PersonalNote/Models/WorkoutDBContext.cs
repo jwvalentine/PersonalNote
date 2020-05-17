@@ -16,7 +16,7 @@ namespace PersonalNote.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=/mydata/PersonalNote.db");
+                optionsBuilder.UseSqlite("Data Source=PersonalNote.db");
               
             }
         }
