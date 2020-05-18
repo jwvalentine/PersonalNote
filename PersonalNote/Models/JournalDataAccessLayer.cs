@@ -81,9 +81,12 @@ namespace PersonalNote.Models
         {
             try
             {
-                JournalReport journal = db.JournalReport.Find(id);
-                db.JournalReport.Remove(journal);
-                db.SaveChanges();
+                if (id > 0)
+                {
+                    JournalReport journal = db.JournalReport.Find(id);
+                    db.JournalReport.Remove(journal);
+                    db.SaveChanges();
+                }
             }
             catch
             {

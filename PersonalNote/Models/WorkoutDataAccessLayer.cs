@@ -83,9 +83,13 @@ namespace PersonalNote.Models
         {
             try
             {
-                WorkoutReport wo = db.WorkoutReport.Find(id);
-                db.WorkoutReport.Remove(wo);
-                db.SaveChanges();
+                if (id > 0)
+                {
+                    WorkoutReport wo = db.WorkoutReport.Find(id);
+                    db.WorkoutReport.Remove(wo);
+                    db.SaveChanges();
+                }
+                return;
             }
             catch
             {

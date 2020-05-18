@@ -12,14 +12,14 @@ namespace PersonalNote.Controllers
         WorkoutDataAccessLayer objwo = new WorkoutDataAccessLayer();
         public IActionResult Index(string searchString)
         {
-            List<WorkoutReport> lstEmployee = new List<WorkoutReport>();
-            lstEmployee = objwo.GetAllReports().ToList();
+            List<WorkoutReport> listWorkout = new List<WorkoutReport>();
+            listWorkout = objwo.GetAllReports().ToList();
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                lstEmployee = objwo.GetSearchResults(searchString).ToList();
+                listWorkout = objwo.GetSearchResults(searchString).ToList();
             }
-            return View(lstEmployee);
+            return View(listWorkout);
         }
 
         public ActionResult AddEditWorkout(int id)
@@ -49,11 +49,12 @@ namespace PersonalNote.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpPost("/Workout/Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            objwo.DeleteWorkout(id);
-            return RedirectToAction("Index");
+                objwo.DeleteWorkout(id);
+                return RedirectToAction("Index");
+        
         }
 
         public ActionResult WorkoutSummary()

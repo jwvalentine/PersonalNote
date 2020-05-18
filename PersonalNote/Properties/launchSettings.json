@@ -33,8 +33,8 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "publishAllPorts": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
-      }
-      }
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }    
+    }
     }
 }

@@ -49,7 +49,7 @@ namespace PersonalNote.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpPost("/Journal/Delete/{id}")]
         public IActionResult Delete(int id)
         {
             objrnl.DeleteJournal(id);
