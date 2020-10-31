@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\js\resume.min.js" />
+    <Content Remove="wwwroot\PersonalNote.db" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\resume.min.js" />
+    <None Include="wwwroot\PersonalNote.db" />
   </ItemGroup>
 
 

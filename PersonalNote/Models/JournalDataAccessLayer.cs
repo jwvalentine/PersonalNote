@@ -8,7 +8,9 @@ namespace PersonalNote.Models
 {
     public class JournalDataAccessLayer
     {
-        WorkoutDBContext db = new WorkoutDBContext();
+        public WorkoutDBContext db;
+
+
         public IEnumerable<JournalReport> GetAllReports()
         {
             try
